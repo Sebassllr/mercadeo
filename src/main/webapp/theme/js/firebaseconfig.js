@@ -3,7 +3,9 @@ var Firebase = {};
 (function(){
 	
 	Firebase.database = null;
-		
+	
+	Firebase.Promotions = [];
+	
 	Firebase.initializer = function(){
 		var config = {
 				    apiKey: "AIzaSyA6mGhbSgcWQEkpHOVw_BirCW6rj4kVf4w",
@@ -19,7 +21,11 @@ var Firebase = {};
 	}
 	
 	Firebase.writeData = function(data, path){		
-		Firebase.database.ref(path + '/').set({data});
+		Firebase.database.ref(path + '/' ).update({data});
+	}
+	
+	Firebase.updateData = function(data, path){		
+		Firebase.database.ref(path + '/' + data[0] ).update({data});
 	}
 	
 	Firebase.readData = function(path){
@@ -128,9 +134,66 @@ var Firebase = {};
 			next(graphData);
 		})
 	}
-	
-	Firebase.getGraph = function(){
 
+	
+	Firebase.getDataTable = function(next){
+		Firebase.getVenta().then(function(venta) {
+			var ventas = [];
+			var point = [];
+			point.push(venta["Gaseosa"].nombre);
+			point.push(venta["Gaseosa"].precio);
+			point.push(venta["Gaseosa"].ventas);
+			ventas.push(point);
+			point = [];
+			
+			point.push(venta["Hamburguesa"].nombre);
+			point.push(venta["Hamburguesa"].precio);
+			point.push(venta["Hamburguesa"].ventas);
+			ventas.push(point);
+			point = [];
+			
+			point.push(venta["Papas"].nombre);
+			point.push(venta["Papas"].precio);
+			point.push(venta["Papas"].ventas);
+			ventas.push(point);
+			point = [];
+			
+			point.push(venta["Perro"].nombre);
+			point.push(venta["Perro"].precio);
+			point.push(venta["Perro"].ventas);
+			ventas.push(point);
+			point = [];
+			
+			next(ventas);
+		})
+	}
+	
+	Firebase.getPromotion = function(){
+		var pedido = [];
+
+		var pedidos = firebase.database().ref('promotion');
+		return pedidos.once('value').then(function(snapshot) {
+			var ped = snapshot.val();
+			for(var key in ped) {
+				Firebase.Promotions.push(ped[key]);
+	        }
+			return(Firebase.Promotions);
+		}).catch(function(error){
+	        alert('error:  ' + error);
+	    });
+	}
+	
+	Firebase.getDataTablePromotion = function(next){
+		Firebase.getPromotion().then(function(promotions) {
+			var prom = [];
+			for (var i = 0; i < promotions.length; i++) {
+				var data = promotions[i];
+				prom.push(data["data"]);
+			}
+			
+			console.log(prom);
+			next(prom)
+		})
 	}
 	
 })();

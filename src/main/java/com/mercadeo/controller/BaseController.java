@@ -14,6 +14,7 @@ public class BaseController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
+		logger.info("Se carga vista principal");
 		// Spring uses InternalResourceViewResolver and return back index.jsp
 		return VIEW_INDEX;
 
@@ -21,6 +22,13 @@ public class BaseController {
 	
 	@RequestMapping(value = "/productos", method = RequestMethod.GET)
 	public String produts(ModelMap model) {
+		logger.info("Se carga vista de productos");
 		return "productos";
+	}
+	
+	@RequestMapping(value = "/promociones", method = RequestMethod.GET)
+	public String promociones(ModelMap model) {
+		logger.info("Se carga vista de promociones");
+		return "promociones";
 	}
 }

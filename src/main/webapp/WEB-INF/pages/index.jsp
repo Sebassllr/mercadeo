@@ -70,22 +70,6 @@
 					</div>
 
 				</div>
-				<div>
-					<div class="margin-top-10 display-flex">
-						<div class="box-button flex1">
-							<div class="center height100">Promedio de entrega: 20 minutos</div>
-						</div>
-						<div class="box-button flex1">
-							<div class="center height100">Promedio de entrega: 20 minutos</div>
-						</div>
-						<div class="box-button flex1">
-							<div class="center height100">Promedio de entrega: 20 minutos</div>
-						</div>
-						<div class="box-button flex1">
-							<div class="center height100">Promedio de entrega: 20 minutos</div>
-						</div>
-					</div>
-				</div>
 				<div class="margin-top-10 display-flex">
 					<div class="box flex1">
 						<div id="performanceChartContainer" class="chartBox"></div>
