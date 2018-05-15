@@ -8,7 +8,7 @@ var Firebase = {};
 	
 	Firebase.initializer = function(){
 		var config = {
-				    apiKey: "AIzaSyA6mGhbSgcWQEkpHOVw_BirCW6rj4kVf4w",
+				apiKey: "AIzaSyA6mGhbSgcWQEkpHOVw_BirCW6rj4kVf4w",
 			    authDomain: "modulomercadeo.firebaseapp.com",
 			    databaseURL: "https://modulomercadeo.firebaseio.com",
 			    projectId: "modulomercadeo",
@@ -168,6 +168,10 @@ var Firebase = {};
 		})
 	}
 	
+	Firebase.savePromotion = function(promotion, path){
+		Firebase.database.ref(path + '/' + promotion.name).update({promotion});
+	}
+	
 	Firebase.getPromotion = function(){
 		var pedido = [];
 
@@ -188,16 +192,20 @@ var Firebase = {};
 			var prom = [];
 			for (var i = 0; i < promotions.length; i++) {
 				var data = promotions[i];
-				prom.push(data["data"]);
+				prom.push(Object.values(data["promotion"]));
 			}
-			
 			console.log(prom);
-			next(prom)
-		})
+			next(prom);
+		});
+	}
+	
+	Firebase.eraseData = function(node){
+		var nullItem = null;
+		Firebase.database.ref('promotion/' + node).set({nullItem});
 	}
 	
 })();
 
 $(function(){
 	Firebase.initializer();
-});
+})

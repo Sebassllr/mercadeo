@@ -10,6 +10,24 @@ var index = {};
 		index.drawGraphSales(index.drawGraph);
 		index.drawGraphPerformance();
 		index.drawPerformanceDes();
+		$('#graphSelection').on('change', index.onChange);
+		index.hideGraphs();
+	}
+	
+	index.hideGraphs = function(){
+		$('#2').hide();
+		$('#3').hide();
+	}
+	
+	index.onChange = function(){
+		var value = this.value;
+		for (var i = 1; i <= 3; i++) {
+			if(value == i){
+				$('#' + i).show();
+			}else{
+				$('#' + i).hide();
+			}
+		}
 	}
 	
 	index.drawGraphSales = function(next){

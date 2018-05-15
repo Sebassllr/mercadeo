@@ -58,25 +58,23 @@
 					<div>
 						<div class="subtitle">Bienvenido al módulo de mercadeo</div>
 						<div class="secondText">Este es su tablero</div>
-					</div>			
-					<div class="display-flex center flexEnd">
-						<button>Actualizar</button>
 					</div>
 				</div>
-				
-				<div class="margin-top-10 display-flex">
-					<div class="box flex1">
+				<select id="graphSelection" name="product" class="margin-left-10 form">
+				  <option value="1">Ventas</option>
+				  <option value="2">Tiempo de asignación</option>
+				  <option value="3">Tiempos de entrega</option>
+				</select>
+				<div class="margin-top-10 display-flex columnFlex">
+					<div id="1" class="box">
 						<div id="salesChartContainer" class="chartBox"></div>
 					</div>
-
-				</div>
-				<div class="margin-top-10 display-flex">
-					<div class="box flex1">
+					<div id="2" class="box">
 						<div id="performanceChartContainer" class="chartBox"></div>
 					</div>
-					<div class="box flex1 margin-left-10">
+					<div id="3" class="box">
 						<div id="performanceChartContainerDelivery" class="chartBox"></div>
-					</div>	
+					</div>
 				</div>
 			</div>
 		</div>

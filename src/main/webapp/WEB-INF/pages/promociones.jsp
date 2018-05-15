@@ -33,8 +33,6 @@
 	 
 	 	<spring:url value="/resources/css/genericStyles.css" var="genericCss" />
 		<link rel="stylesheet" href="${genericCss}">
-		
-
 	</head>
 	
 	<body>
@@ -44,7 +42,7 @@
 				<div>
 					<p class="secondText display-flex columnFlex">
 					  <a  class="center" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-					    Ventas
+						Ventas
 					  </a>
 					</p>
 					<div class="collapse" id="collapseExample">
@@ -56,62 +54,63 @@
 					</div>
 				</div>
 			 </div>
-		 <div class="overflow rigth flex8 background-light-gray padding-25 style-3">
-		 	<div class="display-flex">
-				<div>
-					<div class="subtitle">Visualización de productos</div>
-				</div>
-			</div>
-			<div class="margin-top-10 display-flex">
-				<div class="box flex1 margin-left-10">
-					<table id="dataTableDelivery">
-				        <thead>
-				            <tr>
-				                <th>Nombre</th>
-				                <th>Producto</th>
-				                <th>Precio</th>
-				                <th>Fecha de inicio</th>
-				                <th>Fecha de Fin</th>
-				            </tr>
-				        </thead>
-					</table>
-				</div>
-			</div>
-			<div>
-				<div class="display-flex">
+			 <div class="overflow rigth flex8 background-light-gray padding-25 style-3">
+			 	<div class="display-flex">
 					<div>
-						<div class="subtitle">Agregar nueva promoción</div>
+						<div class="subtitle">Visualización de productos</div>
 					</div>
 				</div>
-				<div class="display-flex columnFlex">
-					<div class="display-flex margin-bottom">
-						<label class="center ">Nombre de promocion:</label>
-						<input id="name" class="margin-left-10 form" type="text">
-						<label class="center margin-left-10">Producto:</label>
-						<select id="product" class="margin-left-10 form">
-						  <option value="Hamburguesas">Hamburguesas</option>
-						  <option value="Gaseosas">Gaseosas</option>
-						  <option value="Papas">Papas</option>
-						  <option value="Perro">Perro</option>
-						</select>
-						<label class="center margin-left-10">Precio:</label>
-						<input id="name" class="margin-left-10 form" type="text">
+				<div class="margin-top-10 display-flex">
+					
+					<div class="box flex1 margin-left-10">
+						<table id="dataTableDelivery">
+					        <thead>
+					            <tr>
+					                <th>Fecha de inicio</th>
+					                <th>Fecha de Fin</th>
+					                <th>Nombre</th>
+					                <th>Precio</th>
+					                <th>Producto</th>
+					            </tr>
+					        </thead>
+						</table>
 					</div>
-					<div class="display-flex margin-bottom">
-						<label class="center form">Fecha de inicio:</label>
-						<input id="dateInit" type="date" class="margin-left-10 form">
-						<label class="center margin-left-10">Fecha de fin:</label>
-						<input id="date" type="date" class="margin-left-10 form">
-					</div>
-					<form action="promociones">
-					    <input type="submit" value="Guardar promoción" />
-					</form>
 					
 				</div>
-			</div>
-		 </div>
-			 
+				<button id="delete">Eliminar</button>
+				<div>
+					<div class="display-flex">
+						<div>
+							<div class="subtitle">Agregar nueva promoción</div>
+						</div>
+					</div>
+					
+					<div class="display-flex columnFlex">
+						<form id="formId">
+							<div class="display-flex margin-bottom">
+								<label class="center ">Nombre de promocion:</label>
+								<input id="name" name="name" class="margin-left-10 form" type="text">
+								<label class="center margin-left-10">Producto:</label>
+								<select id="product" name="product" class="margin-left-10 form">
+								  <option value="Hamburguesas">Hamburguesas</option>
+								  <option value="Gaseosas">Gaseosas</option>
+								  <option value="Papas">Papas</option>
+								  <option value="Perro">Perro</option>
+								</select>
+								<label class="center margin-left-10">Precio:</label>
+								<input name="price" class="margin-left-10 form" type="text">
+							</div>
+							<div class="display-flex margin-bottom">
+								<label class="center form">Fecha de inicio:</label>
+								<input id="dateInit" name="dateInit" type="date" class="margin-left-10 form">
+								<label class="center margin-left-10">Fecha de fin:</label>
+								<input id="date" name="dateFinish" type="date" class="margin-left-10 form">
+							</div>
+							<input id="save" type="submit" value="Guardar promoción" />
+						</form>
+					</div>
+				</div>
+			 </div>
 		</div>
 	</body>
-	
 </html>
